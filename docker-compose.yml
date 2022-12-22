@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+  mage2kishbox-mgt-dev:
+    image: mgtcommerce/mgt-dev:v3
+    container_name: "mgt-dev-new"
+    depends_on:
+      - mage2kishbox-mailhog
+    #volumes:
+      #- ./data/home/cloudpanel:/home/cloudpanel/
+      #- ./data/mysql:/var/lib/mysql/
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8443:8443"
+      - "23:22"
+      - "3306:3306"
+      - "9200:9200"
+      - "15672:15672"
+    networks:
+      docker-mage2kishbox-network:
+        ipv4_address: 145.23.1.1
+
+  mage2kishbox-mailhog:
+    image: mailhog/mailhog
+    container_name: "mailhog"
+    user: root
+    expose:
+      - 80
+    ports:
+      - "1025:80"
+    environment:
+      MH_API_BIND_ADDR: 0.0.0.0:80
+      MH_UI_BIND_ADDR: 0.0.0.0:80
+    networks:
+      docker-mage2kishbox-network:
+        ipv4_address: 145.23.1.4
+
+networks:
+  docker-mage2kishbox-network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 145.23.0.0/16
