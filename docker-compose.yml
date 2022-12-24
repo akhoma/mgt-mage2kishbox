@@ -2,7 +2,7 @@ version: '3'
 
 services:
   mage2kishbox-mgt-dev:
-    image: mgtcommerce/mgt-dev:v3
+    build: "./mgt-dev/"
     container_name: "mgt-dev-new"
     depends_on:
       - mage2kishbox-mailhog
