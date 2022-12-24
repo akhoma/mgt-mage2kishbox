@@ -6,9 +6,9 @@ services:
     container_name: "mgt-dev-new"
     depends_on:
       - mage2kishbox-mailhog
-    #volumes:
-      #- ./data/home/cloudpanel:/home/cloudpanel/
-      #- ./data/mysql:/var/lib/mysql/
+    volumes:
+      - ./data/home/cloudpanel/htdocs:/home/cloudpanel/htdocs
+      - ./data/mysql:/var/lib/mysql/
     ports:
       - "80:80"
       - "443:443"
