@@ -55,6 +55,10 @@ sudo apt install msmtp <br />
 
 nano /etc/php/8.1/fpm/php.ini <br />
 sendmail_path = "/usr/bin/msmtp --host=mailhog --port=1025 -f test@test.localhost -t " <br />
+
+sudo apt-get install msmtp msmtp-mta <br />
+
+
 supervisorctl restart php-fpm8.1 <br />
 
 <br />
