@@ -7,8 +7,9 @@ services:
     depends_on:
       - mage2kishbox-mailhog
     volumes:
-      - ./data/home/cloudpanel/htdocs:/home/cloudpanel/htdocs
       - ./data/mysql:/var/lib/mysql/
+      - ./data/etc/nginx:/etc/nginx/
+      - ./data/home/cloudpanel:/home/cloudpanel
     ports:
       - "80:80"
       - "443:443"
