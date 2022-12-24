@@ -69,7 +69,7 @@ See : https://www.mgt-commerce.com/docs/mgt-development-environment/guides/magen
 
 php8.1 /usr/local/bin/composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition .
 <br /> <br />
-php8.1 bin/magento setup:install --backend-frontname='admin' --key='18Av6ITivOZG3gwY1DhMDWtlLfx1spLP' --session-save='files' --db-host='127.0.0.1' --db-name='magento244ce' --db-user='magento2' --db-password='magento2' --base-url='https://magento244ce.docker/' --base-url-secure='https://magento244ce.docker/' --admin-user='admin' --admin-password='1qwerty' --admin-email='john@doe.com' --admin-firstname='John' --admin-lastname='Doe'
+php8.1 bin/magento setup:install --backend-frontname='admin' --key='18Av6ITivOZG3gwY1DhMDWtlLfx1spLP' --session-save='files' --db-host='127.0.0.1' --db-name='magento24ce' --db-user='magento2' --db-password='magento2' --base-url='https://magento24ce.mgt/' --base-url-secure='https://magento24ce.mgt/' --admin-user='admin' --admin-password='1qwerty' --admin-email='john@doe.com' --admin-firstname='John' --admin-lastname='Doe'
 <br /> <br />
 php8.1 bin/magento setup:perf:generate-fixtures ./setup/performance-toolkit/profiles/ce/small.xml
 <br /> <br />
@@ -81,20 +81,26 @@ chmod -R 777 ./*
 
 ///////////////////////////
 
-
+ <br />
 First init DB (not required for existing VM):
+ <br />
 http://prntscr.com/c7fFp5rzKK4e
+ <br />
 docker-compose up -d
+ <br />
 ssh -p 23 root@127.0.0.1
+ <br />
 
 
 sudo cp -a /var/lib/mysql/. /var/lib/mysql1/
+ <br />
 logout
-
+ <br />
 docker-compose down
-
+ <br />
 
 http://prntscr.com/WqUg9lKolmIc
-
+ <br />
 docker-compose up -d
+ <br />
 https://127.0.0.1:8443/
