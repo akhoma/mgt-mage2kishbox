@@ -1,70 +1,79 @@
 
-run VM machine
-ssh -p 2223 user@127.0.0.1
-cd /var/www/mgt-dev/
-docker-compose up -d
+run VM machine <br />
+ssh -p 2223 user@127.0.0.1 <br />
+cd /var/www/mgt-dev/ <br />
+docker-compose up -d <br />
 
 
 
-ip of host
-10.0.2.2
-telnet 10.0.2.2 9003
+ip of host <br />
+10.0.2.2 <br />
+telnet 10.0.2.2 9003 <br />
 
 
 
 mgt: https://www.mgt-commerce.com/docs/mgt-development-environment/installation
+<br />
 
 
-ssh -p 23 root@127.0.0.1
-root
-cd /home/cloudpanel/htdocs/
+ssh -p 23 root@127.0.0.1 <br />
+root <br />
+cd /home/cloudpanel/htdocs/ <br />
 
 
-index.php
-echo xdebug_info();
-echo  $_SERVER["REMOTE_ADDR"] . "---";
-echo phpinfo();exit();
+index.php <br />
+echo xdebug_info(); <br />
+echo  $_SERVER["REMOTE_ADDR"] . "---"; <br />
+echo phpinfo();exit(); <br />
 
 
-nano /etc/php/8.1/fpm/php.ini
+nano /etc/php/8.1/fpm/php.ini <br />
 
 
-zend_extension=xdebug.so
-xdebug.mode=debug
-xdebug.client_host=10.0.2.2
-xdebug.client_port=9003
-xdebug.max_nesting_level=500
+zend_extension=xdebug.so  <br />
+xdebug.mode=debug <br />
+xdebug.client_host=10.0.2.2 <br />
+xdebug.client_port=9003 <br />
+xdebug.max_nesting_level=500 <br />
 
 
-xdebug.start_with_request=yes
-xdebug.remote_handler=dbgp
-xdebug.discover_client_host=true
-xdebug.log="/var/log/xdebug/xdebug.log"
+xdebug.start_with_request=yes <br />
+xdebug.remote_handler=dbgp <br />
+xdebug.discover_client_host=true <br />
+xdebug.log="/var/log/xdebug/xdebug.log" <br />
 
-;extension=blackfire.so
-
-
-supervisorctl restart php-fpm8.1
+;extension=blackfire.so <br />
 
 
-email mailhog:
+supervisorctl restart php-fpm8.1 <br />
 
 
-sudo apt install msmtp
+email mailhog: <br />
 
-nano /etc/php/8.1/fpm/php.ini
-sendmail_path = "/usr/bin/msmtp --host=mailhog --port=1025 -f test@test.localhost -t "
-supervisorctl restart php-fpm8.1
 
+sudo apt install msmtp <br />
+
+nano /etc/php/8.1/fpm/php.ini <br />
+sendmail_path = "/usr/bin/msmtp --host=mailhog --port=1025 -f test@test.localhost -t " <br />
+supervisorctl restart php-fpm8.1 <br />
+
+<br />
 /////////////
-Install magento 
+Install magento <br />
 See : https://www.mgt-commerce.com/docs/mgt-development-environment/guides/magento2-installation
-
+<br />
 1. create doman in https://127.0.0.1:8443/domains
+<br />
 2. go to project dir
+<br />
 
 php8.1 /usr/local/bin/composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition .
+<br /> <br />
 php8.1 bin/magento setup:install --backend-frontname='admin' --key='18Av6ITivOZG3gwY1DhMDWtlLfx1spLP' --session-save='files' --db-host='127.0.0.1' --db-name='magento244ce' --db-user='magento2' --db-password='magento2' --base-url='https://magento244ce.docker/' --base-url-secure='https://magento244ce.docker/' --admin-user='admin' --admin-password='1qwerty' --admin-email='john@doe.com' --admin-firstname='John' --admin-lastname='Doe'
+<br /> <br />
 php8.1 bin/magento setup:perf:generate-fixtures ./setup/performance-toolkit/profiles/ce/small.xml
+<br /> <br />
 php8.1 bin/magento module:disable Magento_TwoFactorAuth
+<br /> <br />
 chmod -R 777 ./*
+<br /> <br />
