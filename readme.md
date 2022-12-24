@@ -53,6 +53,7 @@ email mailhog: <br />
 
 sudo apt install msmtp <br />
 
+nano /etc/php/8.1/cli/php.ini <br />
 nano /etc/php/8.1/fpm/php.ini <br />
 sendmail_path = "/usr/bin/msmtp --host=mailhog --port=1025 -f test@test.localhost -t " <br />
 
