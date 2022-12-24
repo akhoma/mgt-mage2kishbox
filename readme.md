@@ -77,3 +77,24 @@ php8.1 bin/magento module:disable Magento_TwoFactorAuth
 <br /> <br />
 chmod -R 777 ./*
 <br /> <br />
+
+
+///////////////////////////
+
+
+First init DB (not required for existing VM):
+http://prntscr.com/c7fFp5rzKK4e
+docker-compose up -d
+ssh -p 23 root@127.0.0.1
+
+
+sudo cp -a /var/lib/mysql/. /var/lib/mysql1/
+logout
+
+docker-compose down
+
+
+http://prntscr.com/WqUg9lKolmIc
+
+docker-compose up -d
+https://127.0.0.1:8443/
