@@ -7,14 +7,13 @@ services:
     depends_on:
       - mage2kishbox-mailhog
     volumes:
-      - ./data/mysql:/var/lib/mysql/
-      - ./data/etc/nginx:/etc/nginx/
-      - ./data/home/cloudpanel:/home/cloudpanel
+      - mysqldata:/var/lib/mysql
+      - cloudpaneldata:/home/cloudpanel
     ports:
       - "80:80"
       - "443:443"
       - "8443:8443"
-      - "23:22"
+      - "22:22"
       - "3306:3306"
       - "9200:9200"
       - "15672:15672"
@@ -44,3 +43,7 @@ networks:
       driver: default
       config:
         - subnet: 145.23.0.0/16
+        
+volumes:
+  mysqldata:
+  cloudpaneldata:
