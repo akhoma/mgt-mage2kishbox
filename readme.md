@@ -1,4 +1,3 @@
-
 run VM machine <br />
 ssh -p 2223 user@127.0.0.1 <br />
 cd /var/www/mgt-dev/ <br />
@@ -111,3 +110,6 @@ http://prntscr.com/DSuR9ONO2Bmu
 docker-compose up -d
 <br />
 https://127.0.0.1:8443/
+
+WSL docker setup: https://nickjanetakis.com/blog/install-docker-in-wsl-2-without-docker-desktop
+Ubuntu-20.04 is ok
