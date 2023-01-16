@@ -113,3 +113,20 @@ https://127.0.0.1:8443/
 
 WSL docker setup: https://nickjanetakis.com/blog/install-docker-in-wsl-2-without-docker-desktop
 Ubuntu-20.04 is ok
+
+wsl xdebug:
+windows ip:
+https://github.com/drud/ddev/issues/3772
+grep nameserver /etc/resolv.conf
+xdebug.client_host=172.30.192.1
+
+[XDebug]
+xdebug.mode=debug
+xdebug.start_with_request=yes
+xdebug.discover_client_host=1
+xdebug.remote_cookie_expire_time = 3600
+xdebug.client_port = 9003
+;xdebug.client_host = host.docker.internal
+xdebug.client_host = 172.30.192.1
+xdebug.idekey=PHPSTORM
+xdebug.remote_connect_back=true
