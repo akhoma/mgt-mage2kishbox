@@ -8,7 +8,9 @@ services:
       - mage2kishbox-mailhog
     volumes:
       - mysqldata:/var/lib/mysql
-      - cloudpaneldata:/home/cloudpanel
+      - nginxdata:/etc/nginx/
+      - ./cloudpanel:/home/cloudpanel
+
     ports:
       - "80:80"
       - "443:443"
@@ -46,4 +48,5 @@ networks:
         
 volumes:
   mysqldata:
-  cloudpaneldata:
+  nginxdata:
+  
