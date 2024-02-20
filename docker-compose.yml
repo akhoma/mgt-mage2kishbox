@@ -2,6 +2,7 @@ version: '3'
 
 services:
   mage2kishbox-mgt-dev:
+    platform: linux/amd64
     build: "./mgt-dev/"
     container_name: "mgt-dev-new"
     depends_on:
@@ -9,7 +10,8 @@ services:
     volumes:
       - mysqldata:/var/lib/mysql
       - nginxdata:/etc/nginx/
-      - ./cloudpanel:/home/cloudpanel
+      - cloudpanel:/home/cloudpanel
+      #- ./cloudpanel:/home/cloudpanel
 
     ports:
       - "80:80"
@@ -24,6 +26,7 @@ services:
         ipv4_address: 145.23.1.1
 
   mage2kishbox-mailhog:
+    platform: linux/amd64
     image: mailhog/mailhog
     container_name: "mailhog"
     user: root
@@ -49,4 +52,5 @@ networks:
 volumes:
   mysqldata:
   nginxdata:
+  cloudpanel:
   
