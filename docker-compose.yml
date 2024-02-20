@@ -2,9 +2,8 @@ version: '3'
 
 services:
   mage2kishbox-mgt-dev:
-    platform: linux/amd64
     build: "./mgt-dev/"
-    container_name: "mgt-dev-new"
+    container_name: "mgt-dev"
     depends_on:
       - mage2kishbox-mailhog
     volumes:
