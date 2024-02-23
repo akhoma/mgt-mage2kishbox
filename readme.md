@@ -12,7 +12,7 @@ telnet 10.0.2.2 9003 <br />
 
 
 mgt: https://www.mgt-commerce.com/docs/mgt-development-environment/installation
-<br />
+<br /> 
 
 
 ssh -p 23 root@127.0.0.1 <br />
